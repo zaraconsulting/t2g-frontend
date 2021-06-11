@@ -1,75 +1,92 @@
-# T2G - Sports Team Management App
+# T2G
+<hr>
+Sports team management application created with React, Flask, ElephantSQL and Firebase 
+<hr>
 
+## Table of Contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
-This project is for a sports managements application. 
+<hr>
 
-Technolo
+## General Info
+This project is a React applilcation that consumes the data from a Flask backend API. The project files for the backend API and the React frontend are within this  repository.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<hr>
 
-## Available Scripts
+## Technologies
+<strong>Frontend</strong>:
+* firebase ^8.6.2
+* react ^17.0.2
+* react-dom ^17.0.2
+* react-router-dom ^5.2.0
+* react-scripts 4.0.3
+* web-vitals ^1.0.1
 
-In the project directory, you can run:
+<strong>Backend</strong>:
+* alembic: 1.6.4
+* click: 8.0.1
+* Flask: 2.0.1
+* Flask-HTTPAuth: 4.4.0
+* Flask-Login: 0.5.0
+* Flask-Migrate: 3.0.0
+* Flask-SQLAlchemy: 2.5.1
+* greenlet: 1.1.0
+* gunicorn: 20.1.0
+* itsdangerous: 2.0.1
+* Jinja2: 3.0.1
+* Mako: 1.1.4
+* MarkupSafe: 2.0.1
+* psycopg2-binary: 2.8.6
+* python-dateutil: 2.8.1
+* python-dotenv: 0.17.1
+* python-editor: 1.0.4
+* six: 1.16.0
+* SQLAlchemy: 1.4.15
+* Werkzeug: 2.0.1
 
-### `yarn start`
+<hr>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup
+To run the Flask API, clone the project files into your project folder, then perform the following:
+```
+$ cd ./api
+$ touch .env
+$ python3 -m venv venv
+$ . venv/bin/activate
+$ pip install -r requirements.txt
+$ flask db stamp head
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The Flask API is currently hosted on Heroku:
+```
+$ heroku login
+$ heroku config -a=<heroku_app_name> -s
+```
 
-### `yarn test`
+Copy the contents of the configutation variables in the output of your terminal to the .env file you created in the first step<br>
+Next, in your .env file add a new line:
+```
+FLASK_ENV=development
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<hr>
 
-### `yarn build`
+To run the React frontend, come out of the current directory, then into the frontend directory:
+```
+$ cd ../frontend
+$ touch .env
+$ npm install
+```
+For your configuration variables, log into the account associated with app and pull environmental variables from there in the .env file you created in the step above.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In one terminal
+```
+$ npm run start-api
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In another terminal
+```
+$ npm start
+```
