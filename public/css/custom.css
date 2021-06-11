@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+    .footer-wrapper {
+        text-align: center;
+    }
+
+    .footer-about {
+        margin-bottom: 25px;
+    }
+}

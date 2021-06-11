@@ -14,6 +14,7 @@ export const LoginModal = () => {
         
         const modalBackdrops = document.getElementsByClassName('modal-backdrop');
         document.body.removeChild(modalBackdrops[0]);
+        setTimeout(2000, () => window.location.reload())
     }
 
     return (

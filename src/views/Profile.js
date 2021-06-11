@@ -7,8 +7,8 @@ export const Profile = () =>
             <div className="row">
                 <div className="col-lg-4 offset-sm-4 text-center">
                     <figure className="avatar ml-auto mr-auto mb-0 mt-2 w100"><img src="https://via.placeholder.com/300x300.png" alt="something" className="shadow-sm rounded-lg w-100" /></figure>
-                    <h2 className="fw-900 font-sm text-grey-900 mt-3">Test User</h2>
-                    <h4 className="text-grey-500 fw-500 mb-3 font-xsss mb-4">Brooklyn</h4>
+                    <h2 className="fw-900 font-sm text-grey-900 mt-3">User Name</h2>
+                    <h4 className="text-grey-500 fw-500 mb-3 font-xsss mb-4">Team Name</h4>
                     {/* <a href="." className="p-3 alert-primary text-primary font-xsss fw-500 mt-2 rounded-lg">Upload New Photo</a> */}
                 </div>
             </div>

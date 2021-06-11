@@ -44,7 +44,7 @@ export const Main = () =>
                                         <div className="dashboard-tab p-4 rounded-lg shadow-xs bg-white">
                                             <div className="row">
                                                 <div className="col-lg-12 mt-3">
-                                                    <p className="text-left text-grey-900 fw-900 display1-size mt-0 mb-0 lh-1">Please Log In to View Your Dashboard</p>
+                                                    <h3 style={{ fontSize: '20px' }} className="text-left fw-900 mt-0 mb-0 lh-1">Please Log In to View Your Dashboard</h3>
                                                 </div>
                                             </div>
                                         </div>
