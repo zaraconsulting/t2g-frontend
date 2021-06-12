@@ -1,13 +1,17 @@
 import React from 'react'
+import { useAuth } from '../contexts/AuthContext'
 
 export const Profile = () =>
 {
+    const { currentUser } = useAuth();
+    console.log(currentUser);
+
     return (
         <div className="dashboard-tab cart-wrapper p-5 bg-white rounded-lg shadow-xs">
             <div className="row">
                 <div className="col-lg-4 offset-sm-4 text-center">
                     <figure className="avatar ml-auto mr-auto mb-0 mt-2 w100"><img src="https://via.placeholder.com/300x300.png" alt="something" className="shadow-sm rounded-lg w-100" /></figure>
-                    <h2 className="fw-900 font-sm text-grey-900 mt-3">User Name</h2>
+                    <h2 className="fw-900 font-sm text-grey-900 mt-3">{ currentUser.user.email }</h2>
                     <h4 className="text-grey-500 fw-500 mb-3 font-xsss mb-4">Team Name</h4>
                     {/* <a href="." className="p-3 alert-primary text-primary font-xsss fw-500 mt-2 rounded-lg">Upload New Photo</a> */}
                 </div>
@@ -33,7 +37,7 @@ export const Profile = () =>
                     <div className="col-lg-6 mb-3">
                         <div className="form-gorup">
                             <label className="mont-font fw-600 font-xsss" htmlFor="comment-name">Email</label>
-                            <input type="text" name="comment-name" className="form-control" />
+                            <input type="text" name="comment-name" className="form-control" defaultValue={currentUser.user.email} />
                         </div>
                     </div>
 

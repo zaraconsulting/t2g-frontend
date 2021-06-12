@@ -3,7 +3,7 @@ import { DataContext } from '../contexts/DataProvider';
 
 export const Home = (props) =>
 {
-	const { coaches, players } = useContext(DataContext);
+	const { coaches, players, recruiters } = useContext(DataContext);
 
 	return (
 		<div className="dashboard-tab p-4 rounded-lg shadow-xs bg-white">
@@ -14,8 +14,8 @@ export const Home = (props) =>
 							<div className="card-body p-4">
 								<div className="row">
 									<div className="col-6">
-										<h2 className="text-grey-900 fw-900 display1-size mt-2 mb-1 ls-3 lh-1">0</h2>
-										<h4 className="fw-700 text-grey-500 font-xssss ls-3 text-uppercase mb-0 mt-0">TEAMS</h4>
+										<h2 className="text-grey-900 fw-900 display1-size mt-2 mb-1 ls-3 lh-1">{ players.length }</h2>
+										<h4 className="fw-700 text-grey-500 font-xssss ls-3 text-uppercase mb-0 mt-0">PLAYERS</h4>
 									</div>
 									<div className="col-6 text-left">
 										<div id="chart-users-blue"></div>
@@ -46,8 +46,8 @@ export const Home = (props) =>
 							<div className="card-body p-4">
 								<div className="row">
 									<div className="col-6">
-										<h2 className="text-grey-900 fw-900 display1-size mt-2 mb-1 ls-3 lh-1">{ players.length }</h2>
-										<h4 className="fw-700 text-grey-500 font-xssss ls-3 text-uppercase mb-0 mt-0">PLAYERS</h4>
+										<h2 className="text-grey-900 fw-900 display1-size mt-2 mb-1 ls-3 lh-1">{ recruiters.length }</h2>
+										<h4 className="fw-700 text-grey-500 font-xssss ls-3 text-uppercase mb-0 mt-0">RECRUITERS</h4>
 									</div>
 									<div className="col-6 text-left">
 										<div id="chart-users-blue"></div>
