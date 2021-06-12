@@ -9,8 +9,8 @@ export const RegisterModal = () => {
         e.preventDefault();
         if (e.target.password.value === e.target.confirm_password.value) {
             e.preventDefault();
-            console.log(e.target.email.value)
-            console.log(e.target.password.value)
+            // console.log(e.target.email.value)
+            // console.log(e.target.password.value)
             register(e.target.email.value, e.target.password.value)
         }
     }

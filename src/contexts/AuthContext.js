@@ -17,7 +17,7 @@ export const AuthProvider = ( { children } ) => {
             .then(userCredential => {
                 // Signed in
                 var user = userCredential.user
-                console.log(user)
+                // console.log(user)
             })
             .catch(err => {
                 console.error(`${ err.code }\n${ err.message }`)
@@ -30,7 +30,7 @@ export const AuthProvider = ( { children } ) => {
             .then(userCredential => {
                 // Signed in
                 var user = userCredential.user
-                console.log(user)
+                // console.log(user)
         })
 
     }
@@ -40,7 +40,7 @@ export const AuthProvider = ( { children } ) => {
         firebase.auth().signOut()
             .then(() => {
                 // Sign-in successful
-                console.log('User logged out successfully')
+                // console.log('User logged out successfully')
             })
             .catch(err => {
                 // on an error

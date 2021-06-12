@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext'
 export const Profile = () =>
 {
     const { currentUser } = useAuth();
-    console.log(currentUser);
+    // console.log(currentUser);
 
     return (
         <div className="dashboard-tab cart-wrapper p-5 bg-white rounded-lg shadow-xs">

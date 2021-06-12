@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Password = (props) =>
 {
-    console.log(props)
+    // console.log(props)
     return (
         <div className="dashboard-tab cart-wrapper p-5 bg-white rounded-lg shadow-xs">
 
