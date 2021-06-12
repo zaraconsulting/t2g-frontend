@@ -27,7 +27,8 @@ export const Header = () => {
                             <Link onClick={(e) => handleLogout(e)} to="" style={{ marginRight: '10px' }} className="header-btn bg-dark fw-500 text-white font-xssss" data-toggle="modal" data-target="#Modallogin">Logout</Link>
                         :
                             <React.Fragment>
-                                <a href="." style={{ marginRight: '10px' }} className="header-btn bg-dark fw-500 text-white font-xssss" data-toggle="modal" data-target="#Modallogin">Login</a>
+                                <a href="." style={{ marginRight: '10px' }} className="header-btn bg-current fw-500 text-white font-xssss" data-toggle="modal" data-target="#Modallogin">Login</a>
+                                {/* <a href="." style={{ marginRight: '10px' }} className="header-btn bg-dark fw-500 text-white font-xssss" data-toggle="modal" data-target="#Modallogin">Login</a> */}
                                 {/* <a href="." className="header-btn bg-current fw-500 text-white font-xssss" data-toggle="modal" data-target="#ModalregisterD">Register</a> */}
                             </React.Fragment>
                         }
