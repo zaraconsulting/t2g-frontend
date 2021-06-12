@@ -1,15 +1,36 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+import { PlayerCard } from '../components/PlayerCard';
+import { SelectionList } from '../components/SelectionList';
 import { DataContext } from '../contexts/DataProvider';
 
 export const Home = (props) =>
 {
 	const { coaches, players, recruiters } = useContext(DataContext);
+	const [selectionListData, setSelectionListData] = useState({ isSelected: false, selection: null, list: [] });
+	const [playerCardData, setPlayerCardData] = useState({});
+
+	const handleShowData = (sel) => {
+		
+		switch (sel) {
+			case 'players':
+				setSelectionListData({ isSelected: true, selection: 'players', list: [...players] });
+				return players;
+			case 'coaches':
+				setSelectionListData({ isSelected: true, selection: 'coaches', list: [...coaches] });
+				return coaches;
+			case 'recruiters':
+				setSelectionListData({ isSelected: true, selection: 'recruiters', list: [...recruiters] });
+				return recruiters;
+			default:
+				break;
+		}
+	}
 
 	return (
 		<div className="dashboard-tab p-4 rounded-lg shadow-xs bg-white">
 			<div className="row">
 				<React.Fragment>
-					<div className="col-lg-4 mb-3">
+					<div onClick={() => handleShowData('players')} className="col-lg-4 mb-3">
 						<div className="card border-0 w-100 p-0 rounded-xxl bg-white theme-light-bg shadow-md">
 							<div className="card-body p-4">
 								<div className="row">
@@ -25,7 +46,7 @@ export const Home = (props) =>
 						</div>
 					</div>
 
-					<div className="col-lg-4 mb-3">
+					<div onClick={() => handleShowData('coaches')}  className="col-lg-4 mb-3">
 						<div className="card border-0 w-100 p-0 rounded-xxl bg-white theme-light-bg shadow-md">
 							<div className="card-body p-4">
 								<div className="row">
@@ -41,7 +62,7 @@ export const Home = (props) =>
 						</div>
 					</div>
 
-					<div className="col-lg-4 mb-3">
+					<div onClick={() => handleShowData('recruiters')}  className="col-lg-4 mb-3">
 						<div className="card border-0 w-100 p-0 rounded-xxl bg-white theme-light-bg shadow-md">
 							<div className="card-body p-4">
 								<div className="row">
@@ -56,7 +77,44 @@ export const Home = (props) =>
 							</div>
 						</div>
 					</div>
+					
+					<div className="col-lg-12">
+                        <div className="dashboard-tab cart-wrapper p-5 bg-white rounded-lg shadow-xs">
+                              
+                            <form action="#">
+                                <div className="row">
+                                    <div className="col-lg-12 mb-3">
+                                        <div className="form-gorup">
+                                            <label className="mont-font fw-600 font-xssss" htmlFor="comment-name">Search for a player, coach, or recruiter</label>
+											<div className="search-form">
+												<i className="ti-search font-xs"></i>
+												<input type="text" name="comment-name" className="form-control" placeholder="Type name here..." />
+											</div>
+                                        </div>        
+                                    </div>
 
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+					<div className="col-lg-12">
+                        <div className="dashboard-tab p-0 bg-white rounded-lg shadow-xs pl-3">
+                            <div className="row">
+                                
+								<SelectionList setPlayerCardData={setPlayerCardData} data={selectionListData} />
+
+                                <div className="col-lg-8 pl-0">
+
+									{ !selectionListData.isSelected ? <p>Nothing to see here</p> : null }
+
+									{ selectionListData.isSelected && selectionListData.selection === 'players' ? <PlayerCard data={playerCardData} /> : null }
+									
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 					{/* <div className="col-lg-12 mt-3 cart-wrapper">
               <div className="table-content table-responsive shadow-md">

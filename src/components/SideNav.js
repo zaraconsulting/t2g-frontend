@@ -21,7 +21,8 @@ export const SideNav = () =>
                     currentUser.loggedIn
                     ?
                     <React.Fragment>
-                            <li className="d-block rounded-lg active"><Link to="/"><i className="ti-world font-sm"></i><span> Teams</span></Link></li>
+                            <li className="d-block rounded-lg active"><Link to="/"><i className="ti-home font-sm"></i><span> Home</span></Link></li>
+                            <li className="d-block rounded-lg"><Link to="/"><i className="ti-world font-sm"></i><span> Sports</span></Link></li>
                             <li className="d-block rounded-lg"><a href="/profile"><i className="ti-user font-sm"></i><span> Profile</span></a></li>
                             <li className="d-block rounded-lg "><Link to="/password"><i className="ti-lock font-sm"></i><span> Password</span></Link></li>
                             <li className="d-block rounded-lg"><Link to="" onClick={(e) => handleLogout(e)}><i className="ti-power-off font-sm"></i><span> Logout</span></Link></li>
