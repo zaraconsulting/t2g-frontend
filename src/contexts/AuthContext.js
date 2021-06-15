@@ -16,7 +16,7 @@ export const AuthProvider = ( { children } ) => {
         firebase.auth().signInWithEmailAndPassword(e, p)
             .then(userCredential => {
                 // Signed in
-                var user = userCredential.user
+                // var user = userCredential.user
                 // console.log(user)
             })
             .catch(err => {
@@ -29,7 +29,7 @@ export const AuthProvider = ( { children } ) => {
         firebase.auth().createUserWithEmailAndPassword(e, p)
             .then(userCredential => {
                 // Signed in
-                var user = userCredential.user
+                // var user = userCredential.user
                 // console.log(user)
         })
 
