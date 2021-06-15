@@ -2,7 +2,7 @@ import React from 'react'
 
 export const PlayerCard = (props) => {
     const data = props.data;
-    console.log(data)
+    // console.log(data)
 
     return (
         <React.Fragment>

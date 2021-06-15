@@ -2,8 +2,7 @@ import React from 'react'
 
 export const Tab = (props) => {
     return (
-        <a href="#" onClick={() => props.handleShowData(props.dataType)} className="col-lg-4 mb-3">
-        {/* <a href="#card-info" onClick={() => props.handleShowData(props.dataType)} className="col-lg-4 mb-3"> */}
+        <a href="#card-info" onClick={() => props.handleShowData(props.dataType)} className="col-lg-4 mb-3">
             <div className={ props.dataType === props.selectionListData ? `card border-0 w-100 p-0 shadow-md bg-facebook` : `card border-0 w-100 p-0 shadow-md`}>
                 <div className="card-body p-4">
                     <div className="row">
