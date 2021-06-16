@@ -22,6 +22,7 @@ export const SideNav = () =>
                     ?
                     <React.Fragment>
                             <li className="d-block rounded-lg active"><Link to="/"><i className="ti-search font-sm"></i><span> Search</span></Link></li>
+                            <li className="d-block rounded-lg"><Link to="/postings"><i className="ti-pin2 font-sm"></i><span> Postings</span></Link></li>
                             <li className="d-block rounded-lg"><Link to="/"><i className="ti-world font-sm"></i><span> Sports</span></Link></li>
                             <li className="d-block rounded-lg"><a href="/profile"><i className="ti-user font-sm"></i><span> Profile</span></a></li>
                             <li className="d-block rounded-lg "><Link to="/password"><i className="ti-lock font-sm"></i><span> Password</span></Link></li>

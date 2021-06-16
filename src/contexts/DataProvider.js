@@ -7,7 +7,26 @@ export const DataProvider = (props) => {
     const [ coaches, setCoaches ] = useState([]);
     const [players, setPlayers] = useState([]);
     const [recruiters, setRecruiters] = useState([]);
+    const [postings, setPostings] = useState([]);
     const db = firebase.database();
+
+    useEffect(() => {
+        
+        function getPostings()
+        {
+            let data = [];
+            db.ref('postings').once('value')
+                .then(snapshot => {
+                    snapshot.forEach(child => {
+                        data.push(child.val());
+                    })
+                    setPostings(data);
+                })
+        }
+
+        getPostings();
+
+    }, [db])
 
     useEffect(() =>
     {
@@ -57,7 +76,7 @@ export const DataProvider = (props) => {
         getRecruiters();
     }, [db]);
 
-    const value = { coaches, players, recruiters }
+    const value = { coaches, players, recruiters, postings }
 
     return (
         <DataContext.Provider value={value}>

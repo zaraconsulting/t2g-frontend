@@ -5,7 +5,7 @@ export const SelectionList = (props) => {
     const data = props.data;
     
     const handleSelectPlayer = (data) => {
-        props.setPlayerCardData(data);
+        props.setCardData(data);
     }
 
     return (
@@ -14,7 +14,7 @@ export const SelectionList = (props) => {
                 <ul className="list-group list-group-flush d-flex justify-content-between">
                     {data.list.map(info => (
                         <div key={info.name}>
-                            <a href="#card-info">
+                            <Link to="#card-info">
                                 <li key={info.email} onClick={() => handleSelectPlayer(info)} className="rounded-lg bg-transparent pt-3 pb-3 pr-0 border-0 list-group-item no-icon pl-0">
                                     <figure className="avatar float-left mb-0 mr-2">
                                         <img src="https://via.placeholder.com/80x80.png" alt="." className="w45" />
@@ -27,7 +27,7 @@ export const SelectionList = (props) => {
                                         {/* <i className="ti-star d-block mt-1"></i> */}
                                     </h4>
                                 </li>
-                            </a>
+                            </Link>
                         </div>
                     ))}
                 </ul>

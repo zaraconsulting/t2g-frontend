@@ -8,6 +8,7 @@ import { SideNav } from '../components/SideNav'
 import { useAuth } from '../contexts/AuthContext'
 import { Home } from './Home'
 import { Password } from './Password'
+import { Postings } from './Postings'
 import { Profile } from './Profile'
 
 export const Main = () =>
@@ -36,6 +37,7 @@ export const Main = () =>
                                         ?
                                     <Switch>
                                         <Route exact path='/' render={() => <Home />} />
+                                        <Route exact path='/postings' render={() => <Postings />} />
                                         <Route exact path='/password' render={() => <Password />} />
                                         <Route exact path='/profile' render={() => <Profile />} />
                                     </Switch>
