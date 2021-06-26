@@ -11,6 +11,7 @@ export const LoginModal = () => {
         document.querySelector('#Modallogin').classList.remove('show');
         document.querySelector('#Modallogin').setAttribute('style', 'display: none');
         document.querySelector('#Modallogin').setAttribute('aria-hidden', 'true');
+        document.querySelectorAll('body.modal-open')[0].classList.remove('modal-open');
         
         const modalBackdrops = document.getElementsByClassName('modal-backdrop');
         document.body.removeChild(modalBackdrops[0]);

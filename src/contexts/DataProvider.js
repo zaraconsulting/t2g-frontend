@@ -1,86 +1,48 @@
 import React, { createContext, useEffect, useState } from 'react';
 import firebase from '../util/firebase';
+import { getPostings, getCoaches, getPlayers, getRecruiters, getSports } from './_helpers';
 
 export const DataContext = createContext();
 
-export const DataProvider = (props) => {
+export const DataProvider = (props) =>
+{
     const [ coaches, setCoaches ] = useState([]);
-    const [players, setPlayers] = useState([]);
-    const [recruiters, setRecruiters] = useState([]);
-    const [postings, setPostings] = useState([]);
+    const [ players, setPlayers ] = useState([]);
+    const [ recruiters, setRecruiters ] = useState([]);
+    const [ postings, setPostings ] = useState([]);
+    const [ sports, setSports ] = useState([]);
     const db = firebase.database();
 
-    useEffect(() => {
-        
-        function getPostings()
-        {
-            let data = [];
-            db.ref('postings').once('value')
-                .then(snapshot => {
-                    snapshot.forEach(child => {
-                        data.push(child.val());
-                    })
-                    setPostings(data);
-                })
-        }
-
-        getPostings();
-
-    }, [db])
-
     useEffect(() =>
     {
-        function getCoaches()
-        {
-            let data = [];
-            db.ref('users/coaches').once('value')
-                .then(snapshop => {
-                    snapshop.forEach(child => {
-                        data.push(child.val());
-                    })
-                    setCoaches(data);
-                })
-        }
-        getCoaches();
-    }, [db]);
-
+        getPostings(setPostings, db);
+    }, [ db ])
+    
     useEffect(() =>
     {
-        function getPlayers()
-        {
-            let data = [];
-            db.ref('users/players').once('value')
-                .then(snapshop => {
-                    snapshop.forEach(child => {
-                        data.push(child.val());
-                    })
-                    setPlayers(data);
-                })
-        }
-        getPlayers();
-    }, [db]);
-
+        getCoaches(setCoaches, db);
+    }, [ db ]);
+    
     useEffect(() =>
     {
-        function getRecruiters()
-        {
-            let data = [];
-            db.ref('users/recruiters').once('value')
-                .then(snapshop => {
-                    snapshop.forEach(child => {
-                        data.push(child.val());
-                    })
-                    setRecruiters(data);
-                })
-        }
-        getRecruiters();
-    }, [db]);
+        getPlayers(setPlayers, db);
+    }, [ db ]);
+    
+    useEffect(() =>
+    {
+        getRecruiters(setRecruiters, db);
+    }, [ db ]);
+    
+    useEffect(() =>
+    {
+        getSports(setSports, db);
+    }, [ db ])
 
-    const value = { coaches, players, recruiters, postings }
+    const value = { coaches, players, recruiters, postings, sports }
 
     return (
         <DataContext.Provider value={value}>
-            { props.children }
+            {props.children}
         </DataContext.Provider>
     )
 }

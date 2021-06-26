@@ -10,6 +10,7 @@ import { Home } from './Home'
 import { Password } from './Password'
 import { Postings } from './Postings'
 import { Profile } from './Profile'
+import { Sports } from './Sports'
 
 export const Main = () =>
 {
@@ -38,6 +39,7 @@ export const Main = () =>
                                     <Switch>
                                         <Route exact path='/' render={() => <Home />} />
                                         <Route exact path='/postings' render={() => <Postings />} />
+                                        <Route exact path='/sports' render={() => <Sports />} />
                                         <Route exact path='/password' render={() => <Password />} />
                                         <Route exact path='/profile' render={() => <Profile />} />
                                     </Switch>

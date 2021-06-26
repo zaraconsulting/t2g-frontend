@@ -11,7 +11,6 @@ export const Home = (props) =>
   const { coaches, players, recruiters } = useContext(DataContext);
   const [ selectionListData, setSelectionListData ] = useState({ isSelected: false, selection: null, list: [] });
   const [ cardData, setCardData ] = useState({});
-  // const [coachCardData, setCoachCardData] = useState({});
   const [ inputSearch, setInputSearch ] = useState(false);
 
   const handleSearch = (e) =>
@@ -68,7 +67,8 @@ export const Home = (props) =>
           <Tab handleShowData={handleShowData} selectionListData={selectionListData.selection} dataType={'coaches'} coaches={coaches} />
           <Tab handleShowData={handleShowData} selectionListData={selectionListData.selection} dataType={'recruiters'} recruiters={recruiters} />
 
-          <div id="card-info" className="col-lg-12">
+          <div className="col-lg-12">
+          {/* <div id="card-info" className="col-lg-12"> */}
             <div className="dashboard-tab cart-wrapper p-5 bg-white rounded-lg shadow-xs">
 
               <form action="#">
@@ -109,69 +109,6 @@ export const Home = (props) =>
               </div>
             </div>
           </div>
-
-          {/* <div className="col-lg-12 mt-3 cart-wrapper">
-              <div className="table-content table-responsive shadow-md">
-                <table className="table text-center bg-white rounded-xxl ">
-                  <h2 className="text-grey-900 fw-900 display3-size mt-0 mb-0 lh-1">
-                    Coaches
-                  </h2>
-                  <Coach />
-
-                </table>
-              </div>
-            </div> */}
-
-          {/* <div>
-            mapping over all of the coaches to populate all of them
-          {props.coaches.map((c, idx) => (
-              {props.coaches.map((c, idx) => (
-              <Coach/>
-            ))}
-            </div> */}
-
-          {/* <div className="col-lg-12 mt-3 cart-wrapper">
-              <div className="table-content table-responsive shadow-md">
-                <table className="table text-center bg-white rounded-xxl ">
-                  <br />
-                  <h2 className="text-grey-900 fw-900 display3-size mt-0 mb-0 lh-1">
-                    Players
-                  </h2>
-                  <tbody>
-                    <tr>
-                      <td className="product-thumbnail pl-4 text-left">
-                        <img
-                          src="https://via.placeholder.com/75x100.png"
-                          alt="Product Thumnail"
-                          className="w75 rounded-lg"
-                        />
-                      </td>
-                      <td className="product-headline text-left wide-column">
-                        <h3>
-                          <a href="." className="text-grey-900 fw-600">
-                            Super skinny blazer
-                            </a>
-                        </h3>
-                      </td>
-                      <td className="product-remove text-right">
-                        <a href=".">
-                          <i className="ti-trash font-xs text-grey-500"></i>
-                        </a>
-                        <a href=".">
-                          <i className="ti-eye ml-2 font-xs text-grey-500"></i>
-                        </a>
-                        <a href=".">
-                          <i className="ti-pencil ml-2 font-xs text-grey-500"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div> */}
         </React.Fragment>
       </div>
     </div>

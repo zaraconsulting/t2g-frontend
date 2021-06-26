@@ -1,6 +1,4 @@
-import { post } from 'jquery';
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
 import { PostingCard } from '../components/PostingCard';
 import { DataContext } from '../contexts/DataProvider';
 
