@@ -27,6 +27,7 @@ export const SideNav = () =>
                         <SideNavLink data={{ route: '/profile', icon: 'user', text:'Profile' }} />
                         <SideNavLink data={{ route: '/password', icon: 'lock', text:'Password' }} />
                         <li className="d-block rounded-lg"><Link to="" onClick={(e) => handleLogout(e)}><i className="ti-power-off font-sm"></i><span> Logout</span></Link></li>
+                        <SideNavLink data={{ route: '/manage', icon: 'settings', text:'Manage' }} />
                     </React.Fragment>
                     :
                     <li className="d-block rounded-lg active"><a href="." data-toggle="modal" data-target="#Modallogin"><i className="ti-download font-sm"></i><span> Login</span></a></li>

@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import firebase from '../util/firebase';
-import { getPostings, getCoaches, getPlayers, getRecruiters, getSports } from './_helpers';
+import { getPostings, getCoaches, getPlayers, getRecruiters, getSports, getRoles, getUsers } from './_helpers';
 
 export const DataContext = createContext();
 
@@ -11,34 +11,23 @@ export const DataProvider = (props) =>
     const [ recruiters, setRecruiters ] = useState([]);
     const [ postings, setPostings ] = useState([]);
     const [ sports, setSports ] = useState([]);
+    const [ roles, setRoles ] = useState([]);
+    const [ users, setUsers ] = useState([]);
     const db = firebase.database();
 
     useEffect(() =>
     {
+        getRoles(setRoles, db);
         getPostings(setPostings, db);
-    }, [ db ])
-    
-    useEffect(() =>
-    {
         getCoaches(setCoaches, db);
-    }, [ db ]);
-    
-    useEffect(() =>
-    {
         getPlayers(setPlayers, db);
-    }, [ db ]);
-    
-    useEffect(() =>
-    {
         getRecruiters(setRecruiters, db);
-    }, [ db ]);
-    
-    useEffect(() =>
-    {
         getSports(setSports, db);
+        getUsers(setUsers, db);
     }, [ db ])
 
-    const value = { coaches, players, recruiters, postings, sports }
+
+    const value = { coaches, players, recruiters, postings, sports, roles, users };
 
     return (
         <DataContext.Provider value={value}>

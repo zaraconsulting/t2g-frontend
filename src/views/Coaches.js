@@ -72,7 +72,7 @@ export function Coaches() {
                         <img
                           src="https://via.placeholder.com/80x80.png"
                           alt="placeholder"
-                          class="w45"
+                          className="w45"
                         />
                       </figure>
                       <h3 className="fw-700 mb-0 mt-1 d-inline-block">

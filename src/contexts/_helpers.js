@@ -1,6 +1,24 @@
 import Sport from './repo/Sport';
 
-export const getPostings = (func, db, data=[]) =>
+export const titleCase = (str) =>
+{
+    return str.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase());
+}
+
+export const getRoles = (func, db, data = []) =>
+{
+    db.ref('roles').once('value')
+        .then(snapshop =>
+        {
+            snapshop.forEach(child =>
+            {
+                data.push(child.val())
+            })
+            func(data);
+        })
+}
+
+export const getPostings = (func, db, data = []) =>
 {
     db.ref('postings').once('value')
         .then(snapshot =>
@@ -12,46 +30,84 @@ export const getPostings = (func, db, data=[]) =>
             func(data);
         })
 }
-export const getCoaches = (func, db, data=[]) =>
+export const getCoaches = (func, db, data = []) =>
 {
-    db.ref('users/coaches').once('value')
-        .then(snapshop =>
+    db.ref('users').orderByChild('role/name').equalTo('coach').on('value', snapshot =>
+    {
+        var users = snapshot.val();
+        for (const key in users)
         {
-            snapshop.forEach(child =>
+            if (Object.hasOwnProperty.call(users, key))
             {
-                data.push(child.val());
-            })
-            func(data);
-        })
+                const u = users[ key ];
+                data.push(u);
+            }
+        }
+        func(data);
+    });
 }
-export const getPlayers = (func, db, data=[]) =>
+export const getPlayers = (func, db, data = []) =>
 {
-    db.ref('users/players').once('value')
-        .then(snapshop =>
+    db.ref('users').orderByChild('role/name').equalTo('player').on('value', snapshot =>
+    {
+        var users = snapshot.val();
+        for (const key in users)
         {
-            snapshop.forEach(child =>
+            if (Object.hasOwnProperty.call(users, key))
             {
-                data.push(child.val());
-            })
-            func(data);
-        })
+                const u = users[ key ];
+                data.push(u);
+            }
+        }
+        func(data);
+    });
 }
-export const getRecruiters = (func, db, data=[]) =>
+export const getRecruiters = (func, db, data = []) =>
 {
-    db.ref('users/recruiters').once('value')
-        .then(snapshop =>
+    db.ref('users').orderByChild('role/name').equalTo('recruiter').on('value', snapshot =>
+    {
+        var users = snapshot.val();
+        for (const key in users)
         {
-            snapshop.forEach(child =>
+            if (Object.hasOwnProperty.call(users, key))
             {
-                data.push(child.val());
-            })
-            func(data);
-        })
+                const u = users[ key ];
+                data.push(u);
+            }
+        }
+        func(data);
+    });
 }
 
-export const getSports = (func, db, data=[]) =>
+export const getUsers = (func, db, data = []) =>
 {
-    
+    db.ref('users').on('value', snapshot =>
+    {
+        var users = snapshot.val();
+        for (const key in users)
+        {
+            if (Object.hasOwnProperty.call(users, key))
+            {
+                const u = users[ key ];
+                data.push(u);
+            }
+        }
+        func(data);
+    });
+    // db.ref('users').once('value')
+    //     .then(snapshop =>
+    //     {
+    //         snapshop.forEach(child =>
+    //         {
+    //             data.push(child.val());
+    //         })
+    //         func(data);
+    //     })
+}
+
+export const getSports = (func, db, data = []) =>
+{
+
     db.ref('sports').once('value')
         .then(snapshot =>
         {

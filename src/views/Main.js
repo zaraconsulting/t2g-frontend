@@ -7,6 +7,7 @@ import { RegisterModal } from '../components/RegisterModal'
 import { SideNav } from '../components/SideNav'
 import { useAuth } from '../contexts/AuthContext'
 import { Home } from './Home'
+import { Manage } from './Manage'
 import { Password } from './Password'
 import { Postings } from './Postings'
 import { Profile } from './Profile'
@@ -42,6 +43,7 @@ export const Main = () =>
                                         <Route exact path='/sports' render={() => <Sports />} />
                                         <Route exact path='/password' render={() => <Password />} />
                                         <Route exact path='/profile' render={() => <Profile />} />
+                                        <Route exact path='/manage' render={() => <Manage />} />
                                     </Switch>
                                         :
                                     <React.Fragment>

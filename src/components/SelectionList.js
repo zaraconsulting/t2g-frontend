@@ -1,13 +1,12 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const SelectionList = (props) => {
     const data = props.data;
     const path = useLocation().pathname;
 
     const handleSelectPlayer = (data) => {
-        // console.log(data)
-        props.setCardData(data);
+        props.setCardData({ ...data, selected: true });
     }
     
 
@@ -23,7 +22,7 @@ export const SelectionList = (props) => {
                                         <img src="https://via.placeholder.com/80x80.png" alt="." className="w45" />
                                     </figure>
                                     <h3 className="fw-700 mb-0 mt-1 d-inline-block">
-                                        <a className="font-xsss text-grey-900 d-block" href={ path === '/' ? '#card-info' : '#sports-card-info' }>{info.name}</a>
+                                        <a className="font-xsss text-grey-900 d-block" href={path === '/' ? '#card-info' : '#sports-card-info'}>{info.firstName} {info.lastName}</a>
                                         <span className="d-inline fw-500 text-grey-500">{info.team}</span>
                                     </h3>
                                     <h4 className="fw-600 mb-0 text-right text-grey-500 font-xssss float-right mt-2 d-inline-block">

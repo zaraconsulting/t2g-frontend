@@ -53,7 +53,8 @@ export const AuthProvider = ( { children } ) => {
             if (user) {
                 setCurrentUser(
                     {
-                        user: user,
+                        id: user.uid,
+                        email: user.email,
                         loggedIn: true 
                     }
                 );

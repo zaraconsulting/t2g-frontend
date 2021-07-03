@@ -11,10 +11,6 @@ export function Postings()
 		setSelectedPost(post);
 	}
 
-	const handleSearch = () => {
-		console.log('hello')
-	}
-
 	return (
 		<React.Fragment>
 			<div className="dashboard-tab p-0 bg-white rounded-lg shadow-xs pl-3">

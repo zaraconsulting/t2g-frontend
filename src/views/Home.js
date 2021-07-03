@@ -11,6 +11,7 @@ export const Home = (props) =>
   const { coaches, players, recruiters } = useContext(DataContext);
   const [ selectionListData, setSelectionListData ] = useState({ isSelected: false, selection: null, list: [] });
   const [ cardData, setCardData ] = useState({});
+  // eslint-disable-next-line
   const [ inputSearch, setInputSearch ] = useState(false);
 
   const handleSearch = (e) =>
@@ -25,12 +26,12 @@ export const Home = (props) =>
 
       for (const user of users)
       {
-        if (user.team.toLowerCase().includes(e.target.value.toLowerCase()) || user.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        if (user.team.toLowerCase().includes(e.target.value.toLowerCase()) || user.firstName.toLowerCase().includes(e.target.value.toLowerCase()) || user.lastName.toLowerCase().includes(e.target.value.toLowerCase()))
         {
           selectionList.push(user);
         }
       }
-      setSelectionListData({ isSelected: false, selection: 'search', list: selectionList });
+      setSelectionListData({ isSelected: false, selection: 'search', list: [...selectionList] });
     }
     else
     {
@@ -41,6 +42,7 @@ export const Home = (props) =>
 
   const handleShowData = (sel) =>
   {
+    setCardData({});
 
     switch (sel)
     {
@@ -67,8 +69,8 @@ export const Home = (props) =>
           <Tab handleShowData={handleShowData} selectionListData={selectionListData.selection} dataType={'coaches'} coaches={coaches} />
           <Tab handleShowData={handleShowData} selectionListData={selectionListData.selection} dataType={'recruiters'} recruiters={recruiters} />
 
-          <div className="col-lg-12">
-          {/* <div id="card-info" className="col-lg-12"> */}
+          {/* <div className="col-lg-12"> */}
+          <div id="card-info" className="col-lg-12">
             <div className="dashboard-tab cart-wrapper p-5 bg-white rounded-lg shadow-xs">
 
               <form action="#">
@@ -97,13 +99,15 @@ export const Home = (props) =>
 
                 <div className="col-lg-8 pl-0">
 
-                  {!selectionListData.isSelected && !selectionListData.selection === 'search' || selectionListData.list.length === 0 ? <p className="text-center">Nothing to display</p> : null}
+                  {/* {!selectionListData.isSelected && !selectionListData.selection === 'search' || selectionListData.list.length === 0 ? <p className="text-center">Nothing to display</p> : null} */}
 
                   {selectionListData.isSelected && selectionListData.selection === 'players' ? <PlayerCard data={cardData} /> : null}
                   
                   {selectionListData.isSelected && selectionListData.selection === 'coaches' ? <CoachCard data={cardData} /> : null}
 
                   {selectionListData.isSelected && selectionListData.selection === 'recruiters' ? <RecruiterCard data={cardData} /> : null}
+
+                  { !selectionListData.list || !cardData.selected ? <p className="text-center">Nothing to display</p> : null }
 
                 </div>
               </div>
